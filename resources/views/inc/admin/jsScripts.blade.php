@@ -3,6 +3,7 @@
         <script src="{{asset('assets/admin/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
         <script src="{{asset('assets/admin/plugins/uniform/js/jquery.uniform.standalone.js')}}"></script>
+        
         @if($page!='home') <script src="{{asset('assets/admin/plugins/switchery/switchery.min.js')}}"></script> @endif
         @if($page=='albums')
         	<script src="{{asset('assets/admin/plugins/switchery/switchery.min.js')}}"></script>
@@ -20,6 +21,7 @@
                 
         @endif
         <script src="{{asset('assets/admin/js/ecaps.min.js')}}"></script>
+
 
         
         <!-- <script src="assets/js/pages/dashboard.js"></script> -->

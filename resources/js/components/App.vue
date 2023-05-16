@@ -1,10 +1,10 @@
 <template>
-    <Home />
-    <About />
+  <!-- <Home /> -->
+  <!-- <About />
     <Services />
     <Works />
-    <Contact />
-    <!-- <router-view /> -->
+    <Contact /> -->
+  <!-- <router-view /> -->
 </template>
 
 <script setup>

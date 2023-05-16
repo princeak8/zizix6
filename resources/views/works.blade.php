@@ -1,9 +1,9 @@
 <!-- ***** App Screenshots Area Start ***** -->
-    <section class="app-screenshots-area bg-white section_padding_0_100 clearfix" id="screenshot">
+    <!-- <section class="app-screenshots-area bg-white section_padding_0_100 clearfix" id="screenshot">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <!-- Heading Text  -->
+                    <!-- Heading Text  --
                     <div class="section-heading">
                         <h2>Our Works</h2>
                         <div class="line-shape"></div>
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <!-- App Screenshots Slides  -->
+                    <!-- App Screenshots Slides  --
                     <div class="app_screenshots_slides owl-carousel">
                         <div class="single-shot">
                             <a href="https://www.abujaapartments.com.ng" target="new">
@@ -50,5 +50,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ***** App Screenshots Area End *****====== -->

@@ -23,6 +23,18 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style type="text/css">
+            [v-cloak] {
+                display: none;
+            }    
+        </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js" integrity="sha512-L4lHq2JI/GoKsERT8KYa72iCwfSrKYWEyaBxzJeeITM9Lub5vlTj8tufqYk056exhjo2QDEipJrg6zen/DDtoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script type="application/javascript">
+            const { createApp, ref, onMounted, computed }  = Vue;
+        </script> 
+
     </head>
     <body>
     <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -7,7 +7,7 @@
                     <div class="section-heading text-center">
                         <h2>Our Core Values</h2>
                         <div class="line-shape"></div>
-                        <p><quote>.. Adding Value to your business is our only concern..</quote></p>
+                        <p><quote>.. Adding Value to your business is our only Concern..</quote></p>
                         
                     </div>
 

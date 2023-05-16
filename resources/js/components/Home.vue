@@ -10,7 +10,7 @@
         <div class="col-12 col-md">
           <div class="wellcome-heading">
             <h2>Zizix6 Technologies</h2>
-            <p>Powering ideas and interconnecting businesses</p>
+            <p>Powering ideas and interconnecting business</p>
           </div>
         </div>
       </div>

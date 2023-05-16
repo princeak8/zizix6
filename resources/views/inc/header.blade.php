@@ -59,8 +59,8 @@
                                     <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#features">Services</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#screenshot">Works</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                                    <!-- <li class="nav-item"><a class="nav-link" href="#screenshot">Works</a></li> -->
+                                    <!-- <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li> -->
                                    <!--<li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>-->
                                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -70,11 +70,11 @@
                     </div>
                 </div>
                 <!-- Signup btn -->
-                <div class="col-12 col-lg-2">
+                <!-- <div class="col-12 col-lg-2">
                     <div class="sing-up-button d-none d-lg-block">
                         <a href="#">Client Login</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>

@@ -35,9 +35,9 @@
 
     @include('about')
 
-   @include('services')
+   @include('services', ["services"=>$services]) 
 
-   @include('works') 
+   <!-- @include('works')  -->
 
    @include('contact')
 

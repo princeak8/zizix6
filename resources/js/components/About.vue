@@ -5,10 +5,10 @@
         <div class="col-12">
           <!-- Section Heading Area -->
           <div class="section-heading text-center">
-            <h2>Our Core Values</h2>
+            <h2>Our Core Value</h2>
             <div class="line-shape"></div>
             <p>
-              <quote>.. Adding Value to your business is our only concern..</quote>
+              <quote>.. Add Value to your business is our only..</quote>
             </p>
           </div>
         </div>

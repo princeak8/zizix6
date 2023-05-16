@@ -13,12 +13,14 @@
         @endif
         @if($page=='album')
           <link href="{{asset('assets/admin/plugins/gridgallery/css/component.css')}}" rel="stylesheet">
-          <script src="{{asset('assets/adminplugins/gridgallery/js/modernizr.custom.js')}}"></script>
+          <script src="{{asset('assets/admin/plugins/gridgallery/js/modernizr.custom.js')}}"></script>
         @endif
         <!-- Theme Styles -->
         <link href="{{asset('assets/admin/css/ecaps.min.css')}}" rel="stylesheet">
         <link href="{{asset('assets/admin/css/custom.css')}}" rel="stylesheet">
         <script type="application/javascript" src="{{asset('assets/tinymce/tinymce.min.js')}}"></script>
+        @vite('resources/css/app.css')
+        <link href="{{env('APP_URL').'/resources/css/app.css'}}" rel="stylesheet">
     <!--<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>-->
    
 <script type='text/javascript'>

@@ -11,11 +11,11 @@
                     <div class="footer-text">
                         <p>We'll get back to you immediately</p>
                     </div>
-                    <div class="address-text">
+                    <!-- <div class="address-text">
                         <p><span>Address:</span> Kubwa, Abuja</p>
                         <p><span>Address:</span> GRA, Enugu</p>
                         <p><span>Address:</span> Ikeja, Lagos</p>
-                    </div>
+                    </div> -->
                     <div class="phone-text">
                         <p><span>Phone:</span> +234-703-977-52-98, +234-806-297-70-23, +234-806-693-77-99</p>
                     </div>
@@ -34,9 +34,10 @@
                         @endif
 
                         @include('inc.errors')
+                        <p id="js-error" class="alert alert-danger d-none"></p> 
 
                         
-                        <form>
+                        {!! Form::open(['action' => ['HomeController@save_contact_message'], 'method'=>'POST', 'onsubmit'=>'return validateCaptcha()']) !!}
                             <!-- Message Input Area Start -->
                             <div class="contact_input_area">
                                 <div class="row">
@@ -69,7 +70,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <span style="color: red">*</span>
-                                            <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Your Message" required value="{!! old('message') !!}"></textarea>
+                                            <textarea name="content" class="form-control" id="message" cols="30" rows="4" placeholder="Your Message" required value="{!! old('content') !!}"></textarea>
                                         </div>
                                     </div>
 
@@ -84,9 +85,9 @@
                                                 <i class="fa fa-refresh"></i>
                                            </button>
                                            <input type="text" class="form-control" name="captcha" id="contact-captcha" placeholder="Enter captcha code" required value="{!! old('captcha') !!}">
-                                        </div>
+                                        </div> -->
                                        
-                                        <div class="g-recaptcha" data-sitekey="6Le7AbUUAAAAAJT12tjvg_x2gmb9bjUJvJczfmTk"></div> -->
+                                        <div class="g-recaptcha" data-sitekey="6Le7AbUUAAAAAJT12tjvg_x2gmb9bjUJvJczfmTk"></div>
 
                                     </div>
 
@@ -104,3 +105,17 @@
         </div>
     </section>
     <!-- ***** Contact Us Area End ***** -->
+
+    <script>
+        function validateCaptcha() {
+            if((grecaptcha.getResponse instanceof Function) && grecaptcha.getResponse().length == 0) {
+                $('#js-error').html('Check the Captcha box and complete the verification');
+                $('#js-error').removeClass('d-none');
+                setTimeout(()=> {
+                    $('#js-error').addClass('d-none');
+                }, 5000);
+                return false;
+            }
+            return true;
+        }
+    </script>

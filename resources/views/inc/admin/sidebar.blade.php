@@ -14,32 +14,32 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('adminClients.index')}}">
-                                    <i class="menu-icon icon-flash_on"></i><span>Clients({{$clients->count()}})</span>
+                                <a href="{{url('admin/clients')}}">
+                                    <i class="menu-icon icon-flash_on"></i><span>Clients(0)</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('adminOrders.index') }}">
-                                    <i class="menu-icon icon-code"></i><span>Orders({{$orders->count()}})</span>
+                                <a href="{{ url('admin/services') }}">
+                                    <i class="menu-icon icon-code"></i><span>Services</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{url('admin/messages')}}">
-                                    <i class="menu-icon icon-code"></i><span>Messages({{$messages->count()}})</span>
+                                    <i class="menu-icon icon-code"></i><span>Messages(0)</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('promos.index') }}">
-                                    <i class="menu-icon icon-code"></i><span>Promotions({{$promos->count()}})</span>
+                                <a href="{{ url('admin/promos') }}">
+                                    <i class="menu-icon icon-code"></i><span>Expiry Services(0)</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{url('admin/blacklists')}}">
-                                    <i class="menu-icon icon-code"></i><span>Blacklists({{$blacklists->count()}})</span>
+                                    <i class="menu-icon icon-code"></i><span>Blacklists(0)</span>
                                 </a>
                             </li>
                         <!--   
