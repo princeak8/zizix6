@@ -5,8 +5,7 @@ import router from "./router/index";
 
 const app = createApp({
     components: {
-        AppComponent,
-        Home,
+        AppComponent
     },
 });
 

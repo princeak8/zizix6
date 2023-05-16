@@ -1,0 +1,23 @@
+{
+  "public/images/bg-img/special.png": {
+    "file": "assets/special-4572f6a9.png",
+    "src": "public/images/bg-img/special.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-50cdce31.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-e3b0c442.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-e4a13565.js",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-e3b0c442.css"
+    ]
+  }
+}
