@@ -25,10 +25,11 @@ class ClientService
     public function save($data)
     {
         $client = new Client;
-        $client->firstname = $data['firstname'];
-        $client->lastname = $data['lastname'];
+        $lastname = (isset($data['lastname'])) ? $data['lastname'] : '';
+        $client->name = $data['firstname'].' '.$lastname;
+        // $client->lastname = $data['lastname'];
         $client->email = $data['email'];
-        $client->phone_number = $data['phone_number'];
+        // $client->phone_number = $data['phone_number'];
         $client->save();
         return $client;
     }

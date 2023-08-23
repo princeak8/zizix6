@@ -112,9 +112,9 @@
 
 @section('js')
     <script type="application/javascript">
-        const { ref, onMounted, computed }  = Vue;
+    //     const { ref, onMounted, computed }  = Vue;
 
-    const { createApp } = Vue
+    // const { createApp } = Vue
 
     createApp({
         setup() {
@@ -128,14 +128,7 @@
                     email: "",
                     phoneNumber: "",
                     expiry: "",
-                    services: [
-                        {
-                            name: "www.uniqseed.com",
-                            id: 2,
-                            host: "namecheap",
-                            expiry: "2023-06-15"
-                        }
-                    ]
+                    services: []
                 }
             ]);
             let services = ref('');

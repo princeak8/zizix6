@@ -137,7 +137,7 @@
 
                 <!-- Add Service Modal -->
                 @include('inc.admin.client.add_package_modal', ['client' => $client])
-                @include('inc.admin.client.new_service_modal', ['package' => $package, 'services' => $services])
+                <!-- @include('inc.admin.client.new_service_modal', ['package' => $package, 'services' => $services]) -->
                         
             </div><!-- Main Wrapper -->
 

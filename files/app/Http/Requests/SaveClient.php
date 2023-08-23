@@ -27,7 +27,7 @@ class SaveClient extends FormRequest
     {
         return [
             "firstname" => "required|string",
-            "lastname" => "string",
+            "lastname" => "string|nullable",
             "email" => "required|string|email|unique:clients,email",
             "phone_number" => "string",
             "packages" => "array",
