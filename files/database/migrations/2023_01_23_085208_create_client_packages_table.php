@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('client_id');
             $table->string('name');
-            $table->date('expiry_date')->nullable();
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->timestamps();

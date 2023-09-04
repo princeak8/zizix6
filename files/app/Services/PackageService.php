@@ -12,9 +12,15 @@ class PackageService
         return ClientPackage::find($id);
     }
 
-    public function getClientPackages($client_id)
+    public function getClientPackageWithServices($id)
     {
-        return ClientPackage::where('client_id', $client_id)->get();
+        return ClientPackage::with(['services.service'])->where('id', $id)->first();
+    }
+
+    public function getClientPackages($client_id, $includeClient=false)
+    {
+        $with = ($includeClient) ? ['client', 'services', 'services.service'] : ['services', 'services.service'];
+        return ClientPackage::with($with)->where('client_id', $client_id)->get();
     }
 
     public function getPackages()
@@ -27,8 +33,7 @@ class PackageService
         $package = new ClientPackage;
         $package->client_id = $data['client_id'];
         $package->name = $data['name'];
-        if(isset($data['expiry_date']))  $package->expiry_date = $data['expiry_date'];
-        $package->email = $data['email'];
+        if(isset($data['email'])) $package->email = $data['email'];
         if(isset($data['phone_number'])) $package->phone_number = $data['phone_number'];
         $package->save();
         return $package;

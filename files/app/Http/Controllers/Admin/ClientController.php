@@ -40,7 +40,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = $this->clientService->getClients();
-        dd($clients);
+        // dd($clients);
         return view('admin.client.index', compact('clients'));
     }
 

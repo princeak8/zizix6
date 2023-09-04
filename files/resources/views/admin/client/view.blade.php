@@ -33,8 +33,8 @@
                                     <div class="flex flex-row w-full">
                                         <b class="text-base font-bold text-gray-600 w-[10%]">Name: </b>
                                         <span v-cloak v-if="edit != 'name'">@{{name}}</span>
-                                        <input v-cloak v-if="edit=='name'" type="text" v-model="firstname" class="form-control w-[20%]" />
-                                        <input v-cloak v-if="edit=='name'" type="text" v-model="lastname" class="form-control w-[20%]" />
+                                        <input v-cloak v-if="edit=='name'" type="text" v-model="name" class="form-control w-[20%]" />
+                                        <!-- <input v-cloak v-if="edit=='name'" type="text" v-model="lastname" class="form-control w-[20%]" /> -->
                                     </div>
                                     <div>
                                         <button v-if="edit != 'name'" class="btn btn-primary" @click="setEdit('name')" :disabled="editing">Edit</button>
@@ -123,7 +123,7 @@
                                                         </table>
                                                         
                                                     @endif
-
+                                                    @include('inc.admin.client.new_service_modal', ['package' => $package, 'services' => $services])
                                                 </div>
                                             </div>
                                             <hr class="h-8 w-full"/>
@@ -137,7 +137,7 @@
 
                 <!-- Add Service Modal -->
                 @include('inc.admin.client.add_package_modal', ['client' => $client])
-                <!-- @include('inc.admin.client.new_service_modal', ['package' => $package, 'services' => $services]) -->
+                
                         
             </div><!-- Main Wrapper -->
 
@@ -150,9 +150,9 @@
     
     createApp({
         setup() {
-            let firstname = ref("{{$client->firstname}}");
-            let lastname = ref("{{$client->lastname}}");
-            let name = `${firstname.value} ${lastname.value}`;
+            let name = ref("{{$client->name}}");
+            // let lastname = ref("{{$client->lastname}}");
+            // let name = `${firstname.value} ${lastname.value}`;
             let email = ref("{{$client->email}}");
             let phone_number = ref("{{$client->phone_number}}");
 
@@ -176,7 +176,7 @@
                     let payload = {_token: token, client_id: clientId};
                     const url = "{{env('APP_URL')}}/admin/clients/update";
                     switch(edit.value) {
-                        case 'name' : payload = {...payload, firstname: firstname.value, lastname: lastname.value}; break;
+                        case 'name' : payload = {...payload, name: name.value}; break;
                         case 'email' : payload = {...payload, email: email.value}; break;
                         case 'phone_number' : payload = {...payload, phone_number: phone_number.value}; break;
                     }
@@ -226,7 +226,7 @@
                 }, 5000);
             }
 
-            return { firstname, lastname, name, email, phone_number, edit, setEdit, editing, success, error, save };
+            return { name, email, phone_number, edit, setEdit, editing, success, error, save };
         }
     }).mount('#main-row');
 

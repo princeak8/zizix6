@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class SaveClient extends FormRequest
+class SaveParentPackage extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,16 +27,8 @@ class SaveClient extends FormRequest
     {
         return [
             "name" => "required|string",
-            "email" => "string|email|unique:clients,email",
-            "phone_number" => "required|string",
-            // "packages" => "array",
-            // "packages.*.name" => "required|string|unique:client_packages,name",
-            // "packages.*.email" => "string|email|nullable",
-            // "packages.*.services" => "array",
-            // "packages.*.services.*.name" => "string",
-            // "packages.*.services.*.service_id" => "integer",
-            // "packages.*.services.*.host" => "string",
-            // "packages.*.services.*.expiry" => "date|date_format:Y-m-d|after:now",
+            "email" => "string|nullable",
+            "phone_number" => "string|nullable"
         ];
     }
 

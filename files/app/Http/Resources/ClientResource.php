@@ -4,7 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ServiceResource extends JsonResource
+use App\Http\Resources\PackageResource;
+
+class ClientResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,8 +19,11 @@ class ServiceResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name,
-            "description" => $this->description,
-            "expiry" => ($this->expiry == 1) ? true : false
+            "email" => $this->email,
+            "phone_number" => $this->phone_number,
+            "total_packages" => $this->packages->count(),
+            "packages" => PackageResource::collection($this->packages),
+            "default_client" => ($this->default_client==1) ? true : false
         ];
     }
 }

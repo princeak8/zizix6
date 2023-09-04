@@ -9,7 +9,7 @@ class Client extends Model
 {
     use HasFactory;
 
-    public function getNameAttribute()
+    public function getFullNameAttribute()
     {
         $fullname = '';
         if($this->firstname && !empty($this->firstname)) $fullname .= $this->firstname.' ';

@@ -12,24 +12,37 @@ class ClientService
         return Client::find($id);
     }
 
+    public function getClientWithServices($id)
+    {
+        return Client::with(['packages.services'])->where('id', $id)->first();
+    }
+
+    public function getParent()
+    {
+        return Client::where('default_client', 1)->first();
+    }
+
     public function getClientByEmail($email)
     {
         return Client::where('email', $email)->first();
     }
 
-    public function getClients()
+    public function getAllClients()
     {
         return Client::all();
+    }
+
+    public function getClients()
+    {
+        return Client::where('default_client', 0)->get();
     }
 
     public function save($data)
     {
         $client = new Client;
-        $lastname = (isset($data['lastname'])) ? $data['lastname'] : '';
-        $client->name = $data['firstname'].' '.$lastname;
-        // $client->lastname = $data['lastname'];
-        $client->email = $data['email'];
-        // $client->phone_number = $data['phone_number'];
+        $client->name = $data['name'];
+        if(isset($data['email'])) $client->email = $data['email'];
+        $client->phone_number = $data['phone_number'];
         $client->save();
         return $client;
     }

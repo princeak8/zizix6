@@ -12,7 +12,7 @@
             <form @submit.prevent="save()" class="panel-body flex flex-col justify-center">
                 <p class="alert alert-danger hidden" id="error"></p>
                 <div>
-                    <p>Service Name</p>
+                    <p>Service Name @{{name}}</p>
                     <input type="text" v-model="name" class="form-control" />
                 </div>
                 <div class="my-3">
@@ -34,7 +34,7 @@
                 </div>
                 <input type="hidden" id="packageId" value="{{$package->id}}" />
                 
-                <input type="submit" class="btn btn-primary" value="SUBMIT" />
+                <input type="submit" class="btn btn-primary" value="SUBMITs" />
             </form>
         </div>
             <!-- <div class="modal-footer">
@@ -58,6 +58,7 @@
             let host = ref('');
 
             function save() {
+                console.log('submitted');
                 const errorExists = checkError();
                 if(!errorExists) {
                     console.log('submit form');

@@ -16,11 +16,10 @@ class UserAuth
      */
     public function handle($request, Closure $next)
     {
-        if ( Auth::check())
+        if ( Auth::guard('api')->check())
         {
             return $next($request);
         }
-
-        return redirect('/admin/login');
+        return response()->json(["message" => "unauthorized"], 401);
     }
 }
