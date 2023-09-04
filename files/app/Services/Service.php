@@ -27,7 +27,7 @@ class Service
         $service = new ServiceModel;
         $service->name = $data['name'];
         $service->description = $data['description'];
-        if(isset($data['expiry'])) $service->expiry = 1;
+        if(isset($data['expiry'])) $service->expiry =  $data['expiry'];
         $service->save();
         return $service;
     }
@@ -36,7 +36,7 @@ class Service
     {
         if(isset($data['name'])) $service->name = $data['name'];
         if(isset($data['description'])) $service->description = $data['description'];
-        $service->expiry = (isset($data['expiry'])) ? 1 : 0;
+        if(isset($data['expiry'])) $service->expiry =  $data['expiry'];
         $service->update();
         return $service;
     }
