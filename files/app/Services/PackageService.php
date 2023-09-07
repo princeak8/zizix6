@@ -14,7 +14,7 @@ class PackageService
 
     public function getClientPackageWithServices($id)
     {
-        return ClientPackage::with(['services.service'])->where('id', $id)->first();
+        return ClientPackage::with(['services.service', 'client'])->where('id', $id)->first();
     }
 
     public function getClientPackages($client_id, $includeClient=false)

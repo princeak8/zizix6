@@ -28,8 +28,9 @@ class UpdatePackageService extends FormRequest
         return [
             "package_service_id" => "required|integer",
             "name" => "nullable|string",
-            "package_id" => "nullable|integer",
-            "expiry_date" => "nullable|date|date_format:Y-m-d|after:now",
+            "package_id" => "nullable|integer|exists:client_packages,id",
+            "service_id" => "nullable|integer|exists:services,id",
+            "expiry_date" => "nullable|date|date_format:Y-m-d",
             "host" => "nullable|string"
         ];
     }

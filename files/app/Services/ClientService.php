@@ -32,9 +32,10 @@ class ClientService
         return Client::all();
     }
 
-    public function getClients()
+    public function getClients($count=false)
     {
-        return Client::where('default_client', 0)->get();
+        $query = Client::where('default_client', 0);
+        return ($count) ? $query->count() : $query->get();
     }
 
     public function save($data)

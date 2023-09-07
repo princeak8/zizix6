@@ -30,7 +30,7 @@ class CreatePackageService extends FormRequest
             "host" => "required|string",
             "service_id" => "required|integer|exists:services,id",
             "package_id" => "required|integer|exists:client_packages,id",
-            "expiry_date" => "date|nullable"
+            "expiry_date" => "date|nullable|date_format:Y-m-d"
         ];
     }
 

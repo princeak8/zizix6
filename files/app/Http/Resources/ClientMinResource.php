@@ -4,10 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-use App\Http\Resources\PackageServiceResource;
-use App\Http\Resources\ClientResource;
-
-class PackageResource extends JsonResource
+class ClientMinResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,10 +17,10 @@ class PackageResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name,
-            'total_services' => $this->services->count(),
-            "client_id" => $this->client_id,
-            'client' => new ClientResource($this->whenLoaded('client')),
-            'services' => PackageServiceResource::collection($this->whenLoaded('services'))
+            "email" => $this->email,
+            "phone_number" => $this->phone_number,
+            "total_packages" => $this->packages->count(),
+            "default_client" => ($this->default_client==1) ? true : false
         ];
     }
 }

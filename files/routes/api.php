@@ -29,6 +29,13 @@ Route::group([
         Route::post('/login', 'AuthController@login');
     });
 
+    //Home
+    Route::group([
+        'middleware' => 'userauth',
+    ], function () {
+        Route::get('home', 'HomeController@home');
+    });
+
     Route::group([
         'middleware' => 'userauth',
         'prefix' => '/clients'
@@ -64,6 +71,10 @@ Route::group([
         'prefix' => 'package_service'
     ], function () {
         Route::post('/save', 'PackageServiceController@save');
+        Route::post('/update', 'PackageServiceController@update');
+        Route::get('/expiring', 'PackageServiceController@expiring');
+        Route::get('/expired', 'PackageServiceController@expired');
+
     });
 });
 

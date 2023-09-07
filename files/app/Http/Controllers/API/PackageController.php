@@ -16,6 +16,7 @@ use App\Services\PackageService;
 use App\Services\ClientService;
 
 use App\Http\Resources\PackageResource;
+use App\Http\Resources\PackageMinResource;
 
 class PackageController extends Controller
 {
@@ -78,7 +79,7 @@ class PackageController extends Controller
             if($package) {
                 return response()->json([
                     'statusCode' => 200,
-                    'data' => new PackageResource($package),
+                    'data' => new PackageMinResource($package),
                     'token' => Utilities::refreshToken(Auth::guard('api'))
                 ], 200);
             }else{

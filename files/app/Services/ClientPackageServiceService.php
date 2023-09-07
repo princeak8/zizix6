@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Carbon\Carbon;
 use App\Models\ClientPackageService;
 
 class ClientPackageServiceService
@@ -17,9 +18,23 @@ class ClientPackageServiceService
         return ClientPackageService::where('package_id', $package_id)->get();
     }
 
-    public function getAllPackageServices()
+    public function getAllPackageServices($count=false)
     {
-        return ClientPackageService::all();
+        return ($count) ? ClientPackageService::count() : ClientPackageService::all();
+    }
+
+    //Get services that is about to expire
+    public function getExpiringPackageServices($days, $count=false)
+    {
+        $now = Carbon::now();
+        $query = ClientPackageService::with(['client', 'service', 'package'])->whereRaw('DATEDIFF(expiry_date, ?) < ?')->setBindings([$now, $days])->whereDate('expiry_date', '>', Carbon::now());
+        return ($count) ? $query->count() : $query->get();
+    }
+
+    public function getExpiredPackageServices($count=false)
+    {
+        $query = ClientPackageService::with(['client', 'service', 'package'])->whereDate('expiry_date', '<', Carbon::now());
+        return ($count) ? $query->count() : $query->get();
     }
 
     public function save($data)

@@ -12,6 +12,7 @@ use App\Services\ClientPackageServiceService;
 use App\Services\PackageService;
 
 use App\Http\Requests\CreatePackageService;
+use App\Http\Requests\UpdatePackageService;
 
 use App\Http\Resources\PackageServiceResource;
 
@@ -60,6 +61,42 @@ class PackageServiceController extends Controller
             return Utilities::error($e);
         }
     }
+
+    public function update(UpdatePackageService $request)
+    {
+        try{
+            $data = $request->validated();
+            $packageService = $this->clientPackageService->getPackageService($data['package_service_id']);
+            $packageService = $this->clientPackageService->update($packageService, $data);
+            return Utilities::ok(new PackageServiceResource($packageService));
+        }catch(\Exception $e){
+            return Utilities::error($e);
+        }
+    }
+
+    // Gets package services that about to expire
+    public function expiring()
+    {
+        try{
+            $days = 30;
+            $expiringPackageServices = $this->clientPackageService->getExpiringPackageServices($days);
+            return Utilities::ok(PackageServiceResource::collection($expiringPackageServices));
+        }catch(\Exception $e){
+            return Utilities::error($e);
+        }
+    }
+
+     // Gets package services that has expired
+     public function expired()
+     {
+         try{
+             $days = 30;
+             $expiredPackageServices = $this->clientPackageService->getExpiredPackageServices();
+             return Utilities::ok(PackageServiceResource::collection($expiredPackageServices));
+         }catch(\Exception $e){
+             return Utilities::error($e);
+         }
+     }
 
 
 }
