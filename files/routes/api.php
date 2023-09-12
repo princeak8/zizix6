@@ -66,6 +66,7 @@ Route::group([
         Route::post('/update_package', 'PackageController@update');
     });
 
+    //Package Service Route
     Route::group([
         'middleware' => 'userauth',
         'prefix' => 'package_service'
@@ -74,6 +75,17 @@ Route::group([
         Route::post('/update', 'PackageServiceController@update');
         Route::get('/expiring', 'PackageServiceController@expiring');
         Route::get('/expired', 'PackageServiceController@expired');
+
+    });
+
+    //Price List Route
+    Route::group([
+        'middleware' => 'userauth',
+        'prefix' => 'price'
+    ], function () {
+        Route::post('/save', 'PriceListController@save');
+        Route::post('/update', 'PariceListController@update');
+        Route::get('/list', 'PriceListController@priceLists');
 
     });
 });

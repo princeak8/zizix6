@@ -27,13 +27,13 @@ class ClientPackageServiceService
     public function getExpiringPackageServices($days, $count=false)
     {
         $now = Carbon::now();
-        $query = ClientPackageService::with(['client', 'service', 'package'])->whereRaw('DATEDIFF(expiry_date, ?) < ?')->setBindings([$now, $days])->whereDate('expiry_date', '>', Carbon::now());
+        $query = ClientPackageService::with(['client', 'service', 'package', 'host'])->whereRaw('DATEDIFF(expiry_date, ?) < ?')->setBindings([$now, $days])->whereDate('expiry_date', '>', Carbon::now());
         return ($count) ? $query->count() : $query->get();
     }
 
     public function getExpiredPackageServices($count=false)
     {
-        $query = ClientPackageService::with(['client', 'service', 'package'])->whereDate('expiry_date', '<', Carbon::now());
+        $query = ClientPackageService::with(['client', 'service', 'package', 'host'])->whereDate('expiry_date', '<', Carbon::now());
         return ($count) ? $query->count() : $query->get();
     }
 

@@ -23,4 +23,9 @@ class ClientPackageService extends Model
     {
         return $this->belongsTo('App\Models\ClientPackage');
     }
+
+    public function host()
+    {
+        return $this->belongsTo('App\Models\Host');
+    }
 }

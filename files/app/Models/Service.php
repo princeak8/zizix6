@@ -13,4 +13,9 @@ class Service extends Model
     {
         return $this->hasMany('App\Models\ClientPackageService', 'service_id', 'id');
     }
+
+    public function prices()
+    {
+        return $this->hasMany('App\Models\PriceList', 'service_id', 'id');
+    }
 }

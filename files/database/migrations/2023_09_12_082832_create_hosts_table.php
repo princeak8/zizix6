@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use Illuminate\Support\Facades\Artisan;
+
 return new class extends Migration
 {
     /**
@@ -13,16 +15,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('client_package_services', function (Blueprint $table) {
+        Schema::create('hosts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id');
-            $table->foreignId('client_id')->default(0);
-            $table->foreignId('package_id');
             $table->string('name');
-            $table->date('expiry_date')->nullable();
-            $table->string('host_id')->nullable();
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', array('--class' => 'HostSeeder'));
     }
 
     /**
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_package_services');
+        Schema::dropIfExists('hosts');
     }
 };
