@@ -14,12 +14,12 @@ class PackageService
 
     public function getClientPackageWithServices($id)
     {
-        return ClientPackage::with(['services.service', 'client'])->where('id', $id)->first();
+        return ClientPackage::with(['services.service', 'services.host', 'client'])->where('id', $id)->first();
     }
 
     public function getClientPackages($client_id, $includeClient=false)
     {
-        $with = ($includeClient) ? ['client', 'services', 'services.service'] : ['services', 'services.service'];
+        $with = ($includeClient) ? ['client', 'services', 'services.service', 'services.host'] : ['services', 'services.service'];
         return ClientPackage::with($with)->where('client_id', $client_id)->get();
     }
 

@@ -84,8 +84,19 @@ Route::group([
         'prefix' => 'price'
     ], function () {
         Route::post('/save', 'PriceListController@save');
-        Route::post('/update', 'PariceListController@update');
+        Route::post('/update', 'PriceListController@update');
         Route::get('/list', 'PriceListController@priceLists');
+
+    });
+
+    //Host Route
+    Route::group([
+        'middleware' => 'userauth',
+        'prefix' => 'hosts'
+    ], function () {
+        Route::post('/save', 'HostController@save');
+        Route::post('/update', 'HostController@update');
+        Route::get('', 'HostController@hosts');
 
     });
 });

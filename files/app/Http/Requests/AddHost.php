@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AddPackageService extends FormRequest
+class AddHost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,7 @@ class AddPackageService extends FormRequest
     public function rules()
     {
         return [
-            "name" => "nullable|string",
-            "package_id" => "required|integer",
-            "expiry_date" => "nullable|date|date_format:Y-m-d|after:now",
-            "host_id" => "nullable|integer|exists:hosts,id"
+            "name" => "required|string"
         ];
     }
 

@@ -28,8 +28,8 @@ class AddPriceList extends FormRequest
         return [
             "service_id" => "integer|required|exists:services,id",
             "host_id" => "integer|nullable|exists:hosts,id",
-            "amount" => "numeric|nullable",
-            "amount_dollar" => "numeric|nullable"
+            "amount" => "numeric|nullable|required_without:dollar_amount",
+            "dollar_amount" => "numeric|nullable"
         ];
     }
 

@@ -45,7 +45,7 @@ class ClientPackageServiceService
         $packageService->service_id = $data['service_id'];
         if(isset($data['name'])) $packageService->name = $data['name'];
         if(isset($data['expiry_date'])) $packageService->expiry_date = $data['expiry_date'];
-        if(isset($data['host'])) $packageService->host = $data['host'];
+        if(isset($data['host_id'])) $packageService->host_id = $data['host_id'];
         $packageService->save();
         return $packageService;
     }
@@ -56,6 +56,7 @@ class ClientPackageServiceService
         if(isset($data['client_id'])) $packageService->client_id = $data['client_id'];
         if(isset($data['package_id'])) $packageService->package_id = $data['package_id'];
         if(isset($data['service_id'])) $packageService->service_id = $data['service_id'];
+        if(isset($data['host_id'])) $packageService->host_id = $data['host_id'];
         if(isset($data['name'])) $packageService->name = $data['name'];
         if(in_array('expiry_date', $keys)) {
             if(isset($data['expiry_date']) || is_null($data['expiry_date'])) {

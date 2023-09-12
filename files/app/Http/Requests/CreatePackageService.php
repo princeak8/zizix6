@@ -27,7 +27,7 @@ class CreatePackageService extends FormRequest
     {
         return [
             "name" => "required|string",
-            "host" => "required|string",
+            "host_id" => "nullable|integer|exists:hosts,id",
             "service_id" => "required|integer|exists:services,id",
             "package_id" => "required|integer|exists:client_packages,id",
             "expiry_date" => "date|nullable|date_format:Y-m-d"
